@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import fr.solutec.dao.AlerteRepository;
 import fr.solutec.dao.AnimalRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.Alerte;
 import fr.solutec.entities.Animal;
 import fr.solutec.entities.Type;
 import fr.solutec.entities.User;
@@ -24,6 +27,9 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	
 	@Autowired 
 	private TypeRepository typeRepo;
+	
+	@Autowired 
+	private AlerteRepository alerteRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PetSylvanieApplication.class, args);
@@ -73,7 +79,12 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   Animal a5 = new Animal("Jean", t5 ,"Gentil c", d.parse("25/12/2010") ,u5);
 	   animalRepo.save(a5);
 	   
-	   
+	   Alerte warn1 = new Alerte(a1, "Petit chat perdu et tout mignon", d.parse("2019/02/15"));
+	   alerteRepo.save(warn1);
+	   Alerte warn2 = new Alerte(a4, "Petit chien perdu et blessé ...", d.parse("2018/06/25"));
+	   alerteRepo.save(warn2);
+	   Alerte warn3 = new Alerte(a5, "Lapin trop doux et tout mignon perdu dans le bois de Boulogne", d.parse("2019/07/14"));
+	   alerteRepo.save(warn3);
 	   
 	
 }
