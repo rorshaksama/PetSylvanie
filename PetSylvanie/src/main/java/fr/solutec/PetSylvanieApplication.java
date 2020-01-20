@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import fr.solutec.dao.AdoptionRepository;
 import fr.solutec.dao.AnimalRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.Adoption;
 import fr.solutec.entities.Animal;
 import fr.solutec.entities.Type;
 import fr.solutec.entities.User;
@@ -24,6 +27,9 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	
 	@Autowired 
 	private TypeRepository typeRepo;
+	
+	@Autowired 
+	private AdoptionRepository adoptionRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PetSylvanieApplication.class, args);
@@ -73,7 +79,10 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   Animal a5 = new Animal("Jean", t5 ,"Gentil c", d.parse("25/12/2010") ,u5);
 	   animalRepo.save(a5);
 	   
-	   
+	   Adoption ad1 = new Adoption(u1,a1);
+	   adoptionRepo.save(ad1);
+	   Adoption ad2 = new Adoption(u2,a2);
+	   adoptionRepo.save(ad2);
 	   
 	
 }

@@ -27,6 +27,20 @@ public class Adoption {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public Adoption(User user, Animal animal) {
+		super();
+		this.user = user;
+		this.animal = animal;
+	}
+
+	public Adoption(Long id, User user, Animal animal) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.animal = animal;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -50,11 +64,7 @@ public class Adoption {
 		return "Adoption [id=" + id + ", user=" + user + ", animal=" + animal + "]";
 	}
 
-	public Adoption(User user, Animal animal) {
-		super();
-		this.user = user;
-		this.animal = animal;
-	}
+	
 	
 	
 	
