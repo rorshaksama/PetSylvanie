@@ -20,7 +20,7 @@ public class User {
 		super();
 	}
 
-	public User(Long id, String nom, String prenom, String login, String mdp, String mail) {
+	public User(Long id, String nom, String mail, String prenom, String login, String mdp) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -30,7 +30,7 @@ public class User {
 		this.mail = mail;
 	}
 
-	public User(String nom, String prenom, String login, String mdp, String mail) {
+	public User(String nom, String mail, String prenom, String login, String mdp) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
