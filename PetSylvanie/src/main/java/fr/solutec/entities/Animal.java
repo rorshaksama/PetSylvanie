@@ -1,11 +1,16 @@
 package fr.solutec.entities;
+import java.text.DateFormat;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 @Entity
 public class Animal {
@@ -14,10 +19,14 @@ public class Animal {
 	private Long id;
 	private String nom;
 	
-	@OneToOne
+	@ManyToOne
 	private Type type;
+	
 	private String description;
+	
+	@Temporal(TemporalType.DATE)
 	private Date dateDeNaissance;
+	
 	@ManyToOne
 	private User user;
 	
