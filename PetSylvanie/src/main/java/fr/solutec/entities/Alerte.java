@@ -40,6 +40,10 @@ public class Alerte {
 	}
 
 
+	public Alerte() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}

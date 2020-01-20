@@ -9,6 +9,6 @@ import fr.solutec.entities.Alerte;
 
 public interface AlerteRepository extends CrudRepository<Alerte, Long>{
 	
-	@Query(value = "SELECT warn FROM Alerte warn")
-	public List<Alerte> getAllAlerte();
+	@Query(value= "SELECT al FROM Alerte al")
+	public List<Alerte> getAlerte();
 }

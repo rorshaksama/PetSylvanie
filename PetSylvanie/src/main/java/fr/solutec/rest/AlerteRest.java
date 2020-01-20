@@ -18,7 +18,7 @@ public class AlerteRest {
 	private AlerteRepository alerteRepo;
 	
 	@RequestMapping(value = "/alerte", method = RequestMethod.GET)
-	public List<Alerte> getAllAlerte(){		
-		return (List<Alerte>)alerteRepo.findAll();
+	public List<Alerte> getAl(){		
+		return alerteRepo.getAlerte();
 	}
 }
