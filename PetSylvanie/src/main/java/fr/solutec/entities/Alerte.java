@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Alerte {
@@ -21,7 +21,7 @@ public class Alerte {
 	
 	private String message;
 	
-	@DateTimeFormat
+	@Temporal(TemporalType.DATE)
 	private Date dateDisparition;
 
 	public Alerte(Long id, Animal animal, String message, Date dateDisparition) {
