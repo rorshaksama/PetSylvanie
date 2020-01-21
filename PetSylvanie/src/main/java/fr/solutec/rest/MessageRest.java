@@ -30,4 +30,6 @@ public class MessageRest {
 	public Message createMessage(@RequestBody Message message){		
 		return messageRepo.save(message);
 	}
+	
+	
 }
