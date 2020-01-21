@@ -1,5 +1,4 @@
 package fr.solutec.entities;
-import java.text.DateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
