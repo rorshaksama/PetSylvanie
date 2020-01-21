@@ -39,13 +39,13 @@ public class AlerteRest {
 	@RequestMapping(value = "/createAlerte", method = RequestMethod.POST)
 	public Alerte createAlerte(@RequestBody Alerte alerte){		
 		User u = alerte.getUser();
-		Optional<User> uU = userRepos.getByLogin(u.getLogin());
-		if(!uU.isPresent()) {
-			User uNew = userRepos.save(u);
-			alerte.setUser(uNew);
+		Optional<User> Uexistant = userRepos.getByLogin(u.getLogin());
+		if(!Uexistant.isPresent()) {
+			User new_user = userRepos.save(u);
+			alerte.setUser(new_user);
 		}
 		else {
-			alerte.setUser(uU.get());
+			alerte.setUser(Uexistant.get());
 		}
 		return alerteRepo.save(alerte);	
 	}
