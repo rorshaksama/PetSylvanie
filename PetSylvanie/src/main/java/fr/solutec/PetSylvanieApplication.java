@@ -12,7 +12,7 @@ import fr.solutec.dao.AdoptionRepository;
 import fr.solutec.dao.AlerteRepository;
 
 import fr.solutec.dao.AnimalRepository;
-
+import fr.solutec.dao.MessageRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
 
@@ -21,7 +21,7 @@ import fr.solutec.entities.Adoption;
 import fr.solutec.entities.Alerte;
 
 import fr.solutec.entities.Animal;
-
+import fr.solutec.entities.Message;
 import fr.solutec.entities.Type;
 import fr.solutec.entities.User;
 
@@ -43,6 +43,9 @@ public class PetSylvanieApplication implements CommandLineRunner {
 
 	@Autowired
 	private AlerteRepository alerteRepo;
+	
+	@Autowired
+	private MessageRepository messageRepo;
 	
 	
 
@@ -108,6 +111,8 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   Alerte warn3 = new Alerte(u5, "Lapin trop doux et tout mignon perdu dans le bois de Boulogne", d.parse("14/07/2019"));
 	   alerteRepo.save(warn3);
 
+	   Message m1 = new Message(u1, u4, "He coucou toi");
+	   messageRepo.save(m1);
 	   
 }
 }
