@@ -39,6 +39,19 @@ public class Alerte {
 		this.dateDisparition = dateDisparition;
 	}
 
+	
+
+	public Alerte(User user, String message) {
+		super();
+		this.user = user;
+		this.message = message;
+	}
+
+	
+	public Alerte(String message) {
+		super();
+		this.message = message;
+	}
 
 	public Alerte() {
 		super();
