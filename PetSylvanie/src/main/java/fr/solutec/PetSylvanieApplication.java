@@ -12,6 +12,7 @@ import fr.solutec.dao.AdoptionRepository;
 import fr.solutec.dao.AlerteRepository;
 
 import fr.solutec.dao.AnimalRepository;
+
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
 
@@ -20,6 +21,7 @@ import fr.solutec.entities.Adoption;
 import fr.solutec.entities.Alerte;
 
 import fr.solutec.entities.Animal;
+
 import fr.solutec.entities.Type;
 import fr.solutec.entities.User;
 
@@ -41,6 +43,8 @@ public class PetSylvanieApplication implements CommandLineRunner {
 
 	@Autowired
 	private AlerteRepository alerteRepo;
+	
+	
 
 
 	public static void main(String[] args) {
@@ -105,6 +109,5 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   alerteRepo.save(warn3);
 
 	   
-	
 }
 }
