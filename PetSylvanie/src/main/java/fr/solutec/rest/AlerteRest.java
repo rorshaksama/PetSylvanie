@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +27,16 @@ public class AlerteRest {
 	@RequestMapping(value = "/alerte", method = RequestMethod.GET)
 	public List<Alerte> getAl(){		
 		return alerteRepo.getAlerte();
+	}
+	
+	@RequestMapping(value = "/person", method = RequestMethod.POST)
+	public Alerte saveAlerte(@RequestBody Alerte al){		
+		return alerteRepo.save(al);
+	}
+	
+	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.DELETE)
+	public boolean deleteAlerte(@PathVariable Long id){		
+		alerteRepo.deleteById(id);
+		return true;
 	}
 }
