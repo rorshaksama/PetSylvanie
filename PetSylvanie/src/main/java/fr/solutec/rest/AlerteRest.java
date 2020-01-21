@@ -41,8 +41,7 @@ public class AlerteRest {
 	}
 	
 	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.DELETE)
-	public boolean deleteAlerte(@PathVariable Long id){		
+	public void deleteAlerte(@PathVariable Long id){		
 		alerteRepo.deleteById(id);
-		return true;
 	}
 }
