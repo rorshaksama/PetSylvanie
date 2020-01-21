@@ -35,10 +35,6 @@ public class AlerteRest {
 		return alerteRepo.save(alerte);
 	}
 	
-	@RequestMapping(value = "/person", method = RequestMethod.POST)
-	public Alerte saveAlerte(@RequestBody Alerte al){		
-		return alerteRepo.save(al);
-	}
 	
 	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.DELETE)
 	public void deleteAlerte(@PathVariable Long id){		
