@@ -33,4 +33,9 @@ public class AdoptionRest {
 	public List<Adoption> getAdopById(@PathVariable Long id){		
 		return adoptionRepo.getAdoptionById(id);
 	}
+	
+	@RequestMapping(value = "/adoption/{id}", method = RequestMethod.DELETE)
+	public void deleteAdoption(@PathVariable Long id){		
+		adoptionRepo.deleteById(id);
+	}
 }

@@ -34,4 +34,9 @@ public class AnimalRest {
 	public Animal createAnimal(@RequestBody Animal animal){		
 		return animalRepo.save(animal);
 	}
+	
+	@RequestMapping(value = "/animal/{id}", method = RequestMethod.DELETE)
+	public void deleteAnimal(@PathVariable Long id){		
+		animalRepo.deleteById(id);
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,11 @@ public class MessageRest {
 	@RequestMapping(value = "/createMessage", method = RequestMethod.POST)
 	public Message createMessage(@RequestBody Message message){		
 		return messageRepo.save(message);
+	}
+	
+	@RequestMapping(value = "/message/{id}", method = RequestMethod.DELETE)
+	public void deleteMessage(@PathVariable Long id){		
+		messageRepo.deleteById(id);
 	}
 	
 	

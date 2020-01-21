@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,5 +31,10 @@ public class UserRest {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public List<User> getUs() {
 		return userRepo.getUser();
-}
+	}
+	
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable Long id){		
+		userRepo.deleteById(id);
+	}
 }

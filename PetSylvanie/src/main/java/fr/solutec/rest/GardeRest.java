@@ -43,4 +43,9 @@ public class GardeRest {
 	public List<Garde> getGarByIdAnimalGarde(@PathVariable Long id){		
 		return gardeRepo.getGardeByIdAnimalGarde(id);
 	}
+	
+	@RequestMapping(value = "/garde/{id}", method = RequestMethod.DELETE)
+	public void deleteGarde(@PathVariable Long id){		
+		gardeRepo.deleteById(id);
+	}
 }
