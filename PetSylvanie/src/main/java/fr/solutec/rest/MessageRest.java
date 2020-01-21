@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +24,10 @@ public class MessageRest {
 	@RequestMapping(value = "/message", method = RequestMethod.GET)
 	public List<Message> getMes(){		
 		return messageRepo.getMessage();
+	}
+	
+	@RequestMapping(value = "/createMessage", method = RequestMethod.POST)
+	public Message createMessage(@RequestBody Message message){		
+		return messageRepo.save(message);
 	}
 }

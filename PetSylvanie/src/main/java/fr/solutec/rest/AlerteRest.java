@@ -29,8 +29,20 @@ public class AlerteRest {
 	public List<Alerte> getAl(){		
 		return alerteRepo.getAlerte();
 	}
+
 	@RequestMapping(value = "/createAlerte", method = RequestMethod.POST)
 	public Alerte createAlerte(@RequestBody Alerte alerte){		
 		return alerteRepo.save(alerte);
+	}
+	
+	@RequestMapping(value = "/person", method = RequestMethod.POST)
+	public Alerte saveAlerte(@RequestBody Alerte al){		
+		return alerteRepo.save(al);
+	}
+	
+	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.DELETE)
+	public boolean deleteAlerte(@PathVariable Long id){		
+		alerteRepo.deleteById(id);
+		return true;
 	}
 }
