@@ -22,10 +22,10 @@ public class Garde {
 	private User user_gardien;
 	
 	@ManyToOne
-	private User user_gardé;
+	private User user_garde;
 	
 	@ManyToOne
-	private Animal animal_gardé;
+	private Animal animal_garde;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateDébut;
@@ -33,44 +33,49 @@ public class Garde {
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 
-	public Garde(Long id, String contenu, User user_gardien, User user_gardé, Animal animal_gardé, Date dateDébut,
+	
+	
+	public Garde() {
+		super();
+	}
+
+	public Garde(Long id, String contenu, User user_gardien, User user_garde, Animal animal_garde, Date dateDébut,
 			Date dateFin) {
 		super();
 		this.id = id;
 		this.contenu = contenu;
 		this.user_gardien = user_gardien;
-		this.user_gardé = user_gardé;
-		this.animal_gardé = animal_gardé;
+		this.user_garde = user_garde;
+		this.animal_garde = animal_garde;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
-	public Garde(String contenu, User user_gardien, User user_gardé, Animal animal_gardé, Date dateDébut,
+	public Garde(String contenu, User user_gardien, User user_garde, Animal animal_garde, Date dateDébut,
 			Date dateFin) {
 		super();
 		this.contenu = contenu;
 		this.user_gardien = user_gardien;
-		this.user_gardé = user_gardé;
-		this.animal_gardé = animal_gardé;
+		this.user_garde = user_garde;
+		this.animal_garde = animal_garde;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
-	public Garde(String contenu, User user_gardien, User user_gardé, Date dateDébut, Date dateFin) {
+	public Garde(String contenu, User user_gardien, User user_garde, Date dateDébut, Date dateFin) {
 		super();
 		this.contenu = contenu;
 		this.user_gardien = user_gardien;
-		this.user_gardé = user_gardé;
+		this.user_garde = user_garde;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
-	public Garde(Long id, String contenu, User user_gardé, Animal animal_gardé, Date dateDébut, Date dateFin) {
+	public Garde( String contenu, User user_garde, Animal animal_garde, Date dateDébut, Date dateFin) {
 		super();
-		this.id = id;
 		this.contenu = contenu;
-		this.user_gardé = user_gardé;
-		this.animal_gardé = animal_gardé;
+		this.user_garde = user_garde;
+		this.animal_garde = animal_garde;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
@@ -108,20 +113,20 @@ public class Garde {
 		this.user_gardien = user_gardien;
 	}
 
-	public User getUser_gardé() {
-		return user_gardé;
+	public User getUser_garde() {
+		return user_garde;
 	}
 
-	public void setUser_gardé(User user_gardé) {
-		this.user_gardé = user_gardé;
+	public void setUser_gardé(User user_garde) {
+		this.user_garde = user_garde;
 	}
 
-	public Animal getAnimal_gardé() {
-		return animal_gardé;
+	public Animal getAnimal_garde() {
+		return animal_garde;
 	}
 
-	public void setAnimal_gardé(Animal animal_gardé) {
-		this.animal_gardé = animal_gardé;
+	public void setAnimal_gardé(Animal animal_garde) {
+		this.animal_garde = animal_garde;
 	}
 
 	public Date getDateDébut() {
@@ -142,8 +147,8 @@ public class Garde {
 
 	@Override
 	public String toString() {
-		return "Garde [id=" + id + ", contenu=" + contenu + ", user_gardien=" + user_gardien + ", user_gardé="
-				+ user_gardé + ", animal_gardé=" + animal_gardé + ", dateDébut=" + dateDébut + ", dateFin=" + dateFin
+		return "Garde [id=" + id + ", contenu=" + contenu + ", user_gardien=" + user_gardien + ", user_garde="
+				+ user_garde + ", animal_garde=" + animal_garde + ", dateDébut=" + dateDébut + ", dateFin=" + dateFin
 				+ "]";
 	}
 	

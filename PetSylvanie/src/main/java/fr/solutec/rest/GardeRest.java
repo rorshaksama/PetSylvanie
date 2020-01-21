@@ -24,7 +24,7 @@ public class GardeRest {
 		return gardeRepo.getGarde();
 	}
 	
-	@RequestMapping(value = "/createMessage", method = RequestMethod.POST)
+	@RequestMapping(value = "/createGarde", method = RequestMethod.POST)
 	public Garde createGarde(@RequestBody Garde garde){		
 		return gardeRepo.save(garde);
 	}
@@ -32,5 +32,15 @@ public class GardeRest {
 	@RequestMapping(value = "/garde/gardien/{id}", method = RequestMethod.GET)
 	public List<Garde> getGarByIdGardien(@PathVariable Long id){		
 		return gardeRepo.getGardeByIdGardien(id);
+	}
+	
+	@RequestMapping(value = "/garde/userGarde/{id}", method = RequestMethod.GET)
+	public List<Garde> getGarByIdUserGarde(@PathVariable Long id){		
+		return gardeRepo.getGardeByIdUserGarde(id);
+	}
+	
+	@RequestMapping(value = "/garde/animalGarde/{id}", method = RequestMethod.GET)
+	public List<Garde> getGarByIdAnimalGarde(@PathVariable Long id){		
+		return gardeRepo.getGardeByIdAnimalGarde(id);
 	}
 }

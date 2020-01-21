@@ -12,6 +12,7 @@ import fr.solutec.dao.AdoptionRepository;
 import fr.solutec.dao.AlerteRepository;
 
 import fr.solutec.dao.AnimalRepository;
+import fr.solutec.dao.GardeRepository;
 import fr.solutec.dao.MessageRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
@@ -21,6 +22,7 @@ import fr.solutec.entities.Adoption;
 import fr.solutec.entities.Alerte;
 
 import fr.solutec.entities.Animal;
+import fr.solutec.entities.Garde;
 import fr.solutec.entities.Message;
 import fr.solutec.entities.Type;
 import fr.solutec.entities.User;
@@ -47,6 +49,8 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	@Autowired
 	private MessageRepository messageRepo;
 	
+	@Autowired
+	private GardeRepository gardeRepo;
 	
 
 
@@ -113,6 +117,12 @@ public class PetSylvanieApplication implements CommandLineRunner {
 
 	   Message m1 = new Message(u1, u4, "He coucou toi");
 	   messageRepo.save(m1);
+	   
+	   Garde g1 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u1, a1, d.parse("25/12/2010"), d.parse("26/12/2010") );
+	   gardeRepo.save(g1);
+	   
+	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, u2, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
+	   gardeRepo.save(g2);
 	   
 }
 }

@@ -12,6 +12,12 @@ public interface GardeRepository extends CrudRepository<Garde, Long>{
 	@Query(value= "SELECT g FROM Garde g")
 	public List<Garde> getGarde();
 	
-	@Query(value= "SELECT g FROM Garde a WHERE user_gardien.id = ?1")
+	@Query(value= "SELECT g FROM Garde g WHERE user_gardien.id = ?1")
 	public List<Garde> getGardeByIdGardien(Long id);
+	
+	@Query(value= "SELECT g FROM Garde g WHERE user_garde.id = ?1")
+	public List<Garde> getGardeByIdUserGarde(Long id);
+	
+	@Query(value= "SELECT g FROM Garde g WHERE animal_garde.id = ?1")
+	public List<Garde> getGardeByIdAnimalGarde(Long id);
 }
