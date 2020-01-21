@@ -1,6 +1,7 @@
 package fr.solutec.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.AlerteRepository;
+import fr.solutec.dao.UserRepository;
 import fr.solutec.entities.Alerte;
+import fr.solutec.entities.User;
 
 
 @RestController @CrossOrigin("*")
@@ -19,6 +22,9 @@ public class AlerteRest {
 
 	@Autowired 
 	private AlerteRepository alerteRepo;
+	
+	@Autowired 
+	private UserRepository userRepos;
 	
 	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.GET)
 	public List<Alerte> getAlById(@PathVariable Long id){		
@@ -32,9 +38,17 @@ public class AlerteRest {
 
 	@RequestMapping(value = "/createAlerte", method = RequestMethod.POST)
 	public Alerte createAlerte(@RequestBody Alerte alerte){		
-		return alerteRepo.save(alerte);
+		User u = alerte.getUser();
+		Optional<User> uU = userRepos.getByLogin(u.getLogin());
+		if(!uU.isPresent()) {
+			User uNew = userRepos.save(u);
+			alerte.setUser(uNew);
+		}
+		else {
+			alerte.setUser(uU.get());
+		}
+		return alerteRepo.save(alerte);	
 	}
-	
 	
 	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.DELETE)
 	public void deleteAlerte(@PathVariable Long id){		
