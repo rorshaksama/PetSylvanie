@@ -19,7 +19,12 @@ public class AlerteRest {
 	private AlerteRepository alerteRepo;
 	
 	@RequestMapping(value = "/alerte/{id}", method = RequestMethod.GET)
-	public List<Alerte> getAl(@PathVariable Long id){		
-		return alerteRepo.getAlerte(id);
+	public List<Alerte> getAlById(@PathVariable Long id){		
+		return alerteRepo.getAlerteById(id);
+	}
+	
+	@RequestMapping(value = "/alerte", method = RequestMethod.GET)
+	public List<Alerte> getAl(){		
+		return alerteRepo.getAlerte();
 	}
 }

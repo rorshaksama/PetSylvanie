@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import fr.solutec.dao.AnimalRepository;
+import fr.solutec.entities.Alerte;
 import fr.solutec.entities.Animal;
 
 @RestController @CrossOrigin("*")
@@ -20,7 +21,12 @@ public class AnimalRest {
 	private AnimalRepository animalRepo;
 	
 	@RequestMapping(value = "/animal/{id}", method = RequestMethod.GET)
-	public List<Animal> getAl(@PathVariable Long id){		
-		return animalRepo.getAnimal(id);
+	public List<Animal> getAlById(@PathVariable Long id){		
+		return animalRepo.getAnimalById(id);
+	}
+	
+	@RequestMapping(value = "/animal", method = RequestMethod.GET)
+	public List<Animal> getAn(){		
+		return animalRepo.getAnimal();
 	}
 }
