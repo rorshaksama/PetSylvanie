@@ -17,24 +17,24 @@ public class Alerte {
 	private Long id;
 	
 	@ManyToOne
-	private Animal animal;
+	private User user;
 	
 	private String message;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateDisparition;
 
-	public Alerte(Long id, Animal animal, String message, Date dateDisparition) {
+	public Alerte(Long id, User user, String message, Date dateDisparition) {
 		super();
 		this.id = id;
-		this.animal = animal;
+		this.user = user;
 		this.message = message;
 		this.dateDisparition = dateDisparition;
 	}
 
-	public Alerte(Animal animal, String message, Date dateDisparition) {
+	public Alerte(User user, String message, Date dateDisparition) {
 		super();
-		this.animal = animal;
+		this.user = user;
 		this.message = message;
 		this.dateDisparition = dateDisparition;
 	}
@@ -52,12 +52,12 @@ public class Alerte {
 		this.id = id;
 	}
 
-	public Animal getAnimal() {
-		return animal;
+	public User getUser() {
+		return user;
 	}
 
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getMessage() {
@@ -78,7 +78,7 @@ public class Alerte {
 
 	@Override
 	public String toString() {
-		return "Alerte [animal=" + animal + ", message=" + message + ", dateDisparition=" + dateDisparition + "]";
+		return "Alerte [user=" + user + ", message=" + message + ", dateDisparition=" + dateDisparition + "]";
 	}
 
 	
