@@ -13,10 +13,9 @@ public class Adoption {
 	private Long id;
 	
 	@ManyToOne
-	private User user;
-	
-	@ManyToOne
 	private Animal animal;
+	
+	private String contenu;
 	
 	public Long getId() {
 		return id;
@@ -27,28 +26,42 @@ public class Adoption {
 	}
 	
 	
-	public Adoption(User user, Animal animal) {
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+
+	public Adoption(Animal animal, String contenu) {
 		super();
-		this.user = user;
+		this.animal = animal;
+		this.contenu = contenu;
+	}
+
+	public Adoption(Long id, Animal animal, String contenu) {
+		super();
+		this.id = id;
+		this.animal = animal;
+		this.contenu = contenu;
+	}
+
+	public Adoption(Animal animal) {
+		super();
 		this.animal = animal;
 	}
 
-	public Adoption(Long id, User user, Animal animal) {
+	public Adoption(Long id, Animal animal) {
 		super();
 		this.id = id;
-		this.user = user;
 		this.animal = animal;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
 
 	public Animal getAnimal() {
 		return animal;
@@ -60,8 +73,10 @@ public class Adoption {
 
 	@Override
 	public String toString() {
-		return "Adoption [id=" + id + ", user=" + user + ", animal=" + animal + "]";
+		return "Adoption [id=" + id +  ", animal=" + animal + ", contenu=" + contenu + "]";
 	}
+
+	
 
 	
 	

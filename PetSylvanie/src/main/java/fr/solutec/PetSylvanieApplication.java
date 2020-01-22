@@ -103,9 +103,9 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   animalRepo.save(a5);
 	   
 
-	   Adoption ad1 = new Adoption(u1,a1);
+	   Adoption ad1 = new Adoption(a1);
 	   adoptionRepo.save(ad1);
-	   Adoption ad2 = new Adoption(u2,a2);
+	   Adoption ad2 = new Adoption(a2);
 	   adoptionRepo.save(ad2);
 
 	   Alerte warn1 = new Alerte(u1, "Petit chat perdu et tout mignon", d.parse("15/02/2019"));
@@ -116,7 +116,7 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   alerteRepo.save(warn3);
 
 	   Message m1 = new Message(u1, u4, "He coucou toi");
-	   messageRepo.save(m1);
+	   messageRepo.save(m1); 
 	   
 	   Garde g1 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u1, a1, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g1);

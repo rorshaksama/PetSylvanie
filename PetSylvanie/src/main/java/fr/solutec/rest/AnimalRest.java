@@ -30,7 +30,7 @@ public class AnimalRest {
 		return animalRepo.getAnimal();
 	}
 	
-	@RequestMapping(value = "/createAnimal", method = RequestMethod.POST)
+	@RequestMapping(value = "/animal", method = RequestMethod.POST)
 	public Animal createAnimal(@RequestBody Animal animal){		
 		return animalRepo.save(animal);
 	}

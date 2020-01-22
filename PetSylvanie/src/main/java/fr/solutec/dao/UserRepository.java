@@ -17,4 +17,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	
 	
 	public Optional<User> getByLogin(String login);
+	
+	@Query(value= "UPDATE User u SET u.mail= ?1")
+	public User updateUserMail(String mail);
 }
