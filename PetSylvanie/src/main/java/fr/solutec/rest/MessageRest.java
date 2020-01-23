@@ -34,17 +34,17 @@ public class MessageRest {
 		return messageRepo.getMessage();
 	}
 	
-	@RequestMapping(value = "/createMessage", method = RequestMethod.POST)
+	@RequestMapping(value = "/message", method = RequestMethod.POST)
 	public Message createMessage(@RequestBody Message message){	
-			User u_ex = message.getUser_expediteur();
+			User u_ex = message.getUserExpediteur();
 			//User u_des = message.getUser_destinataire();
 			Optional<User> Uexistant = userRepos.getByLogin(u_ex.getLogin());
 			if(!Uexistant.isPresent()) {
 				User new_user = userRepos.save(u_ex);
-				message.setUser_expediteur(new_user);
+				message.setUserExpediteur(new_user);
 			}
 			else {
-				message.setUser_expediteur(Uexistant.get());
+				message.setUserExpediteur(Uexistant.get());
 			}
 		return messageRepo.save(message);
 	}

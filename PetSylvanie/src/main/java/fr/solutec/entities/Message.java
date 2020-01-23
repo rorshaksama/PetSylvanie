@@ -13,10 +13,10 @@ public class Message {
 	private Long id;
 	
 	@ManyToOne
-	private User user_destinataire;
+	private User userDestinataire;
 	
 	@ManyToOne
-	private User user_expediteur;
+	private User userExpediteur;
 	
 	private String contenu;
 
@@ -24,18 +24,18 @@ public class Message {
 		super();
 	}
 
-	public Message(Long id, User user_destinataire, User user_expediteur, String contenu) {
+	public Message(Long id, User userDestinataire, User userExpediteur, String contenu) {
 		super();
 		this.id = id;
-		this.user_destinataire = user_destinataire;
-		this.user_expediteur = user_expediteur;
+		this.userDestinataire = userDestinataire;
+		this.userExpediteur = userExpediteur;
 		this.contenu = contenu;
 	}
 
-	public Message(User user_destinataire, User user_expediteur, String contenu) {
+	public Message(User userDestinataire, User userExpediteur, String contenu) {
 		super();
-		this.user_destinataire = user_destinataire;
-		this.user_expediteur = user_expediteur;
+		this.userDestinataire = userDestinataire;
+		this.userExpediteur = userExpediteur;
 		this.contenu = contenu;
 	}
 
@@ -47,20 +47,20 @@ public class Message {
 		this.id = id;
 	}
 
-	public User getUser_destinataire() {
-		return user_destinataire;
+	public User getUserDestinataire() {
+		return userDestinataire;
 	}
 
-	public void setUser_destinataire(User user_destinataire) {
-		this.user_destinataire = user_destinataire;
+	public void setUserDestinataire(User userDestinataire) {
+		this.userDestinataire = userDestinataire;
 	}
 
-	public User getUser_expediteur() {
-		return user_expediteur;
+	public User getUserExpediteur() {
+		return userExpediteur;
 	}
 
-	public void setUser_expediteur(User user_expediteur) {
-		this.user_expediteur = user_expediteur;
+	public void setUserExpediteur(User userExpediteur) {
+		this.userExpediteur = userExpediteur;
 	}
 
 	public String getContenu() {
@@ -73,7 +73,7 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", user_destinataire=" + user_destinataire + ", user_expediteur=" + user_expediteur
+		return "Message [id=" + id + ", userDestinataire=" + userDestinataire + ", userExpediteur=" + userExpediteur
 				+ ", contenu=" + contenu + "]";
 	}
 	
