@@ -19,6 +19,16 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	
+
+	public User(String login, String mail) {
+		super();
+		this.login = login;
+		this.mail = mail;
+	}
+
+
 
 	public User(Long id, String nom, String mail, String prenom, String login, String mdp) {
 		super();
