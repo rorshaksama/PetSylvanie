@@ -12,6 +12,9 @@ public interface AlerteRepository extends CrudRepository<Alerte, Long>{
 	@Query(value= "SELECT al FROM Alerte al WHERE user.id = ?1")
 	public List<Alerte> getAlerteById(Long id);
 	
+	@Query(value= "SELECT al.user.login FROM Alerte al WHERE al.id = ?1")
+	public String getUserByAlerteId(Long id);
+	
 	@Query(value= "SELECT al FROM Alerte al")
 	public List<Alerte> getAlerte();
 }
