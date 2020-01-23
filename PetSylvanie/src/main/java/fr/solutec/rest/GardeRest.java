@@ -36,7 +36,7 @@ public class GardeRest {
 	
 	@RequestMapping(value = "/garde/userGarde/{id}", method = RequestMethod.GET)
 	public List<Garde> getGarByIdUserGarde(@PathVariable Long id){		
-		return gardeRepo.getGardeByIdUserGarde(id);
+		return gardeRepo.getGardeByIdUserProprio(id);
 	}
 	
 	@RequestMapping(value = "/garde/animalGarde/{id}", method = RequestMethod.GET)
