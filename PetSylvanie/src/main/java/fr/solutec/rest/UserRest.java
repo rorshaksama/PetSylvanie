@@ -4,6 +4,7 @@ package fr.solutec.rest;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,5 +37,17 @@ public class UserRest {
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable Long id){		
 		userRepo.deleteById(id);
+	}
+	
+	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
+	public User connexion(@RequestBody User u) {
+		Optional<User> pe = userRepo.findByLoginAndMdp(u.getLogin(), u.getMdp());
+		
+		User pp = new User();
+		if (pe.isPresent()) {
+			pp = pe.get();
+			pp.setMdp(null);
+		}
+		return pp;
 	}
 }
