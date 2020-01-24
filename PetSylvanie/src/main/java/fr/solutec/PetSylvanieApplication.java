@@ -12,6 +12,7 @@ import fr.solutec.dao.AdoptionRepository;
 import fr.solutec.dao.AlerteRepository;
 
 import fr.solutec.dao.AnimalRepository;
+import fr.solutec.dao.FicheRepository;
 import fr.solutec.dao.GardeRepository;
 import fr.solutec.dao.MessageRepository;
 import fr.solutec.dao.TypeRepository;
@@ -22,6 +23,7 @@ import fr.solutec.entities.Adoption;
 import fr.solutec.entities.Alerte;
 
 import fr.solutec.entities.Animal;
+import fr.solutec.entities.Fiche;
 import fr.solutec.entities.Garde;
 import fr.solutec.entities.Message;
 import fr.solutec.entities.Type;
@@ -51,6 +53,9 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	
 	@Autowired
 	private GardeRepository gardeRepo;
+	
+	@Autowired
+	private FicheRepository ficheRepo;
 	
 
 
@@ -123,6 +128,12 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   
 	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, u2, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g2);
+	   
+	   Fiche f1 = new Fiche(t1, "Les chiens et leurs cacas, une grande histoire d'amour", "Selon une étude, nos 		grands amis les chiens sont friands de leurs excréments. Quelle bande de clébards ! lol");
+	   ficheRepo.save(f1);
+	   
+	   Fiche f2 = new Fiche(t2, "Chatte en chaleur", "Pauline Paupiette Pops, une grande experte de la chatte a 	dit 	un jour : ''faut ken''.");
+	   ficheRepo.save(f2);
 	   
 }
 }
