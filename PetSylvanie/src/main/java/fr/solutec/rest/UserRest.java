@@ -40,6 +40,11 @@ public class UserRest {
 		return userRepo.getUser();
 	}
 	
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public User getUsById() {
+		return userRepo.getUserById();
+	}
+	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable Long id){		
 		userRepo.deleteById(id);

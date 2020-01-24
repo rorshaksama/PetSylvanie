@@ -14,6 +14,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	@Query(value= "SELECT u FROM User u")
 	public List<User> getUser();
 	
+	@Query(value= "SELECT u FROM User u WHERE u.id= ?1")
+	public User getUserById();	
 	
 	public Optional<User> getByLogin(String login);
 	
