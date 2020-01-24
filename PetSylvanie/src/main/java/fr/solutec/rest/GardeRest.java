@@ -37,38 +37,18 @@ public class GardeRest {
 	
 	@RequestMapping(value = "/createGarde", method = RequestMethod.POST)
 	public Garde createGarde(@RequestBody Garde garde){	
-		User u = garde.getAnimal().getUser();
-		Animal a = garde.getAnimal();
-		Optional<User> Uexistant = userRepos.getByLogin(u.getLogin());
-		Optional<Animal> Aexistant = animalRepo.getById(a.getId());
-		if(!Uexistant.isPresent()) {
-			User new_user = userRepos.save(u);
-			garde.getAnimal().setUser(new_user);
-			Animal new_animal = animalRepo.save(a);
-			new_animal.setUser(new_user);
-			garde.setAnimalGarde(new_animal);
-		}
-		else if (Uexistant.isPresent() && !Aexistant.isPresent()) {
-			garde.getAnimal().setUser(Uexistant.get()); 
-			Animal new_animal = animalRepo.save(a);
-			new_animal.setUser(Uexistant.get());
-			garde.setAnimalGarde(new_animal);
-		}
-		else {
-			garde.getAnimal().setUser(Uexistant.get());
-			garde.setAnimalGarde(Aexistant.get());
-		}
+		User userGardien = garde.getUserGardien();
+		Animal animal = garde.getAnimal();
+		Optional<User> Uexistant = userRepos.getByLogin(userGardien.getLogin());
+		Optional<Animal> Aexistant = animalRepo.getById(animal.getId());
+		garde.getAnimal().setUser(Uexistant.get());
+		garde.setAnimalGarde(Aexistant.get());
 		return gardeRepo.save(garde);
 	}
 	
 	@RequestMapping(value = "/garde/gardien/{id}", method = RequestMethod.GET)
 	public List<Garde> getGarByIdGardien(@PathVariable Long id){		
 		return gardeRepo.getGardeByIdGardien(id);
-	}
-	
-	@RequestMapping(value = "/garde/proprio/{id}", method = RequestMethod.GET)
-	public List<Garde> getGarByIdUserProprio(@PathVariable Long id){		
-		return gardeRepo.getGardeByIdUserProprio(id);
 	}
 	
 	@RequestMapping(value = "/garde/animalGarde/{id}", method = RequestMethod.GET)

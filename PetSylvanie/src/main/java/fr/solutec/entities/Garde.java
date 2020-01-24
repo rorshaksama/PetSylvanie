@@ -22,9 +22,6 @@ public class Garde {
 	private User userGardien;
 	
 	@ManyToOne
-	private User userProprio;
-	
-	@ManyToOne
 	private Animal animal;
 	
 	@Temporal(TemporalType.DATE)
@@ -32,49 +29,35 @@ public class Garde {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
-
-	
-	
+		
 	public Garde() {
 		super();
 	}
 
-	public Garde(Long id, String contenu, User userGardien, User userProprio, Animal animal, Date dateDébut,
+	public Garde(Long id, String contenu, User userGardien, Animal animal, Date dateDébut,
 			Date dateFin) {
 		super();
 		this.id = id;
 		this.contenu = contenu;
 		this.userGardien = userGardien;
-		this.userProprio = userProprio;
 		this.animal = animal;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
-	public Garde(String contenu, User userGardien, User userProprio, Animal animal, Date dateDébut,
+	public Garde(String contenu, User userGardien, Animal animal, Date dateDébut,
 			Date dateFin) {
 		super();
 		this.contenu = contenu;
 		this.userGardien = userGardien;
-		this.userProprio = userProprio;
 		this.animal = animal;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
-	public Garde(String contenu, User userGardien, User userProprio, Date dateDébut, Date dateFin) {
+	public Garde( String contenu, Animal animal, Date dateDébut, Date dateFin) {
 		super();
 		this.contenu = contenu;
-		this.userGardien = userGardien;
-		this.userProprio = userProprio;
-		this.dateDébut = dateDébut;
-		this.dateFin = dateFin;
-	}
-
-	public Garde( String contenu, User userProprio, Animal animal, Date dateDébut, Date dateFin) {
-		super();
-		this.contenu = contenu;
-		this.userProprio = userProprio;
 		this.animal = animal;
 		this.dateDébut = dateDébut;
 		this.dateFin = dateFin;
@@ -113,14 +96,6 @@ public class Garde {
 		this.userGardien = userGardien;
 	}
 
-	public User getUserProprio() {
-		return userProprio;
-	}
-
-	public void setUserProprio(User userProprio) {
-		this.userProprio = userProprio;
-	}
-
 	public Animal getAnimal() {
 		return animal;
 	}
@@ -147,10 +122,8 @@ public class Garde {
 
 	@Override
 	public String toString() {
-		return "Garde [id=" + id + ", contenu=" + contenu + ", userGardien=" + userGardien + ", userProprio="
-				+ userProprio + ", animal=" + animal + ", dateDébut=" + dateDébut + ", dateFin=" + dateFin
-				+ "]";
+		return "Garde [id=" + id + ", contenu=" + contenu + ", userGardien=" + userGardien + 
+				", animal=" + animal + ", dateDébut=" + dateDébut + ", dateFin=" + dateFin + "]";
 	}
-	
-	
+		
 }

@@ -18,10 +18,22 @@ public class Message {
 	@ManyToOne
 	private User userExpediteur;
 	
+	@ManyToOne
+	private TypeMessage type;
+	
 	private String contenu;
 
 	public Message() {
 		super();
+	}
+	
+	public Message(Long id, User userDestinataire, User userExpediteur, TypeMessage type, String contenu) {
+		super();
+		this.id = id;
+		this.userDestinataire = userDestinataire;
+		this.userExpediteur = userExpediteur;
+		this.type = type;
+		this.contenu = contenu;
 	}
 
 	public Message(Long id, User userDestinataire, User userExpediteur, String contenu) {
