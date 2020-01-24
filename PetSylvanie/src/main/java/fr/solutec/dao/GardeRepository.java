@@ -17,4 +17,7 @@ public interface GardeRepository extends CrudRepository<Garde, Long>{
 	
 	@Query(value= "SELECT g FROM Garde g WHERE animal.id = ?1")
 	public List<Garde> getGardeByIdAnimalGarde(Long id);
+	
+	
+	// public List<Animal> getAnimalNotExistGarde();
 }
