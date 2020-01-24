@@ -29,20 +29,10 @@ public class UserRest {
 		return userRepo.save(user);
 	}
 	
-	@RequestMapping(value = "/modifUser", method = RequestMethod.PUT)
-	public User modifUser(@RequestBody User user){		
-		
-		Optional<User> Uexistant = userRepo.findById(user.getId());
-		
-		User uModif = Uexistant.get();
-		
-		uModif.setLogin(user.getLogin());
-		uModif.setMail(user.getMail());
-		uModif.setMdp(user.getMdp());
-		uModif.setNom(user.getNom());
-		uModif.setPrenom(user.getPrenom());
-					
-		return userRepo.save(uModif);
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+	public User modifUser(@RequestBody User user, @PathVariable Long id){		
+		user.setId(id);
+		return userRepo.save(user);
 	}
 	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
