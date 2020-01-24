@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.HistoriqueMessageRepository;
+import fr.solutec.entities.HistoriqueMessage;
 
 @RestController @CrossOrigin("*")
-public class HistoriqueMessage {
+public class HistoriqueMessageRest {
 	
 	@Autowired
 	private HistoriqueMessageRepository histoMessRepo;
 	
 	@RequestMapping(value = "/historique", method = RequestMethod.GET)
-	public List<fr.solutec.entities.HistoriqueMessage> getMes(){		
+	public List<HistoriqueMessage> getHistoMes(){		
 		return histoMessRepo.getHistoriqueMessage();
 	}
 

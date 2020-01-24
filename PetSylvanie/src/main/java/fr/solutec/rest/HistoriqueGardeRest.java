@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.HistoriqueGardeRepository;
-
+import fr.solutec.entities.HistoriqueGarde;
 
 @RestController @CrossOrigin("*")
 public class HistoriqueGardeRest {
@@ -19,7 +19,7 @@ public class HistoriqueGardeRest {
 	private HistoriqueGardeRepository histoGardeRepo;
 	
 	@RequestMapping(value = "/historiqueGarde", method = RequestMethod.GET)
-	public List<fr.solutec.entities.HistoriqueMessage> getMes(){		
+	public List<HistoriqueGarde> getHistoGarde(){		
 		return histoGardeRepo.getHistoriqueGarde();
 	}
 	@RequestMapping(value = "/historiqueGarde/{id}", method = RequestMethod.DELETE)

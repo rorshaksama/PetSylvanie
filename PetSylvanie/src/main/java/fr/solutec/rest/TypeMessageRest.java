@@ -23,7 +23,7 @@ public class TypeMessageRest {
 		return   (List<TypeMessage>)  typeMessRepo.getTypeMessage();
 	}
 	
-	@RequestMapping(value = "/type", method = RequestMethod.POST)
+	@RequestMapping(value = "/typeMessage", method = RequestMethod.POST)
 	public TypeMessage putTypeMessage(@RequestBody TypeMessage t) {
 		return typeMessRepo.save(t);
 	}

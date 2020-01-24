@@ -126,7 +126,7 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   Garde g1 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u1, a1, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g1);
 	   
-	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, u2, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
+	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g2);
 	   
 	   Fiche f1 = new Fiche(t1, "Les chiens et leurs cacas, une grande histoire d'amour", "Selon une étude, nos 		grands amis les chiens sont friands de leurs excréments. Quelle bande de clébards ! lol");
