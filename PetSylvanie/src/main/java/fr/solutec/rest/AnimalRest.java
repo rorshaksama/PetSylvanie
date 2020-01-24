@@ -39,4 +39,10 @@ public class AnimalRest {
 	public void deleteAnimal(@PathVariable Long id){		
 		animalRepo.deleteById(id);
 	}
+	
+	@RequestMapping(value = "/animal/user/{id}", method = RequestMethod.GET)
+	public List<Animal> getAnimal(@PathVariable Long id) {
+		
+		return animalRepo.findByUserId(id);
+	}
 }

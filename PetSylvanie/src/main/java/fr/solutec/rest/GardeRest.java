@@ -40,14 +40,14 @@ public class GardeRest {
 		return animalRepo.getAnimalById(user.getId());
 	}
 	
-	@RequestMapping(value = "/createGarde", method = RequestMethod.POST)
+	@RequestMapping(value = "/garde", method = RequestMethod.POST)
 	public Garde createGarde(@RequestBody Garde garde){	
-		User userGardien = garde.getUserGardien();
+		/* User userGardien = garde.getUserGardien();
 		Animal animal = garde.getAnimal();
 		Optional<User> Uexistant = userRepos.getByLogin(userGardien.getLogin());
 		Optional<Animal> Aexistant = animalRepo.getById(animal.getId());
 		garde.getAnimal().setUser(Uexistant.get());
-		garde.setAnimalGarde(Aexistant.get());
+		garde.setAnimalGarde(Aexistant.get()); */
 		return gardeRepo.save(garde);
 	}
 	

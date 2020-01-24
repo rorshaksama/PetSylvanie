@@ -106,6 +106,8 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   animalRepo.save(a4);
 	   Animal a5 = new Animal("Jean", t5 ,"Gentil c", d.parse("25/12/2010") ,u5);
 	   animalRepo.save(a5);
+	   Animal a6 = new Animal("Jaja", t5 ,"Gentil chien", d.parse("25/12/2010") ,u1);
+	   animalRepo.save(a6);
 	   
 
 	   Adoption ad1 = new Adoption(a1);

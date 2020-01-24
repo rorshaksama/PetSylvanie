@@ -22,4 +22,6 @@ public interface AnimalRepository extends CrudRepository<Animal, Long>{
 	public Optional<Animal> getByUser(User user);
 	
 	public Optional<Animal> getByNom(String nom);
+	
+	public List<Animal> findByUserId(Long id);
 }

@@ -25,7 +25,7 @@ public class Garde {
 	private Animal animal;
 	
 	@Temporal(TemporalType.DATE)
-	private Date dateDébut;
+	private Date dateDebut;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
@@ -41,7 +41,7 @@ public class Garde {
 		this.contenu = contenu;
 		this.userGardien = userGardien;
 		this.animal = animal;
-		this.dateDébut = dateDébut;
+		this.dateDebut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
@@ -51,7 +51,7 @@ public class Garde {
 		this.contenu = contenu;
 		this.userGardien = userGardien;
 		this.animal = animal;
-		this.dateDébut = dateDébut;
+		this.dateDebut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
@@ -59,7 +59,7 @@ public class Garde {
 		super();
 		this.contenu = contenu;
 		this.animal = animal;
-		this.dateDébut = dateDébut;
+		this.dateDebut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
@@ -68,7 +68,7 @@ public class Garde {
 		this.id = id;
 		this.contenu = contenu;
 		this.userGardien = userGardien;
-		this.dateDébut = dateDébut;
+		this.dateDebut = dateDébut;
 		this.dateFin = dateFin;
 	}
 
@@ -105,11 +105,11 @@ public class Garde {
 	}
 
 	public Date getDateDébut() {
-		return dateDébut;
+		return dateDebut;
 	}
 
 	public void setDateDébut(Date dateDébut) {
-		this.dateDébut = dateDébut;
+		this.dateDebut = dateDébut;
 	}
 
 	public Date getDateFin() {
@@ -123,7 +123,7 @@ public class Garde {
 	@Override
 	public String toString() {
 		return "Garde [id=" + id + ", contenu=" + contenu + ", userGardien=" + userGardien + 
-				", animal=" + animal + ", dateDébut=" + dateDébut + ", dateFin=" + dateFin + "]";
+				", animal=" + animal + ", dateDébut=" + dateDebut + ", dateFin=" + dateFin + "]";
 	}
 		
 }
