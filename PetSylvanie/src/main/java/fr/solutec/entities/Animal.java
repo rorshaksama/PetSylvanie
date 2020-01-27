@@ -26,6 +26,8 @@ public class Animal {
 	@Temporal(TemporalType.DATE)
 	private Date dateDeNaissance;
 	
+	private String photoAnimal;
+	
 	@ManyToOne
 	private User user;
 	
@@ -66,6 +68,12 @@ public class Animal {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public String getPhotoAnimal() {
+		return photoAnimal;
+	}
+	public void setPhotoAnimal(String photoAnimal) {
+		this.photoAnimal = photoAnimal;
+	}
 	public Animal(Long id, String nom, Type type, String description, Date dateDeNaissance, User user) {
 		super();
 		this.id = id;
@@ -85,6 +93,17 @@ public class Animal {
 	}
 	public Animal() {
 		super();
+	}
+	public Animal(Long id, String nom, Type type, String description, Date dateDeNaissance, String photoAnimal,
+			User user) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.type = type;
+		this.description = description;
+		this.dateDeNaissance = dateDeNaissance;
+		this.photoAnimal = photoAnimal;
+		this.user = user;
 	}
 
 	

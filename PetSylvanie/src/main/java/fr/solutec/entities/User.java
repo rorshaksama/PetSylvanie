@@ -15,12 +15,42 @@ public class User {
 	private String login;
 	private String mdp;
 	private String mail;
+	private String photo;
 	
 	public User() {
 		super();
 	}
 	
 	
+	
+
+	public String getPhoto() {
+		return photo;
+	}
+
+
+
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
+
+
+	public User(Long id, String nom, String prenom, String login, String mdp, String mail, String photo) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.login = login;
+		this.mdp = mdp;
+		this.mail = mail;
+		this.photo = photo;
+	}
+
+
+
 
 	public User(Long id, String login) {
 		super();
