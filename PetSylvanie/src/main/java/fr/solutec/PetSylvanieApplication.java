@@ -14,7 +14,9 @@ import fr.solutec.dao.AlerteRepository;
 import fr.solutec.dao.AnimalRepository;
 import fr.solutec.dao.FicheRepository;
 import fr.solutec.dao.GardeRepository;
+import fr.solutec.dao.HistoriqueGardeRepository;
 import fr.solutec.dao.MessageRepository;
+import fr.solutec.dao.TypeMessageRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
 
@@ -25,8 +27,11 @@ import fr.solutec.entities.Alerte;
 import fr.solutec.entities.Animal;
 import fr.solutec.entities.Fiche;
 import fr.solutec.entities.Garde;
+import fr.solutec.entities.HistoriqueGarde;
+import fr.solutec.entities.HistoriqueMessage;
 import fr.solutec.entities.Message;
 import fr.solutec.entities.Type;
+import fr.solutec.entities.TypeMessage;
 import fr.solutec.entities.User;
 
 
@@ -57,6 +62,12 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	@Autowired
 	private FicheRepository ficheRepo;
 	
+	@Autowired
+	private TypeMessageRepository typemessageRepo;
+	
+	@Autowired
+	private HistoriqueGardeRepository histoGardeRepo;
+	
 
 
 	public static void main(String[] args) {
@@ -68,6 +79,18 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	   System.out.println("lancement des instructions");
+	   
+	   TypeMessage tm1 =new TypeMessage("garde");
+	  typemessageRepo.save(tm1);
+	  TypeMessage tm2 =new TypeMessage("alerte");
+	  typemessageRepo.save(tm2);
+	  TypeMessage tm3 =new TypeMessage("adoption");
+	  typemessageRepo.save(tm3);
+	   	   
+	   
+	   
+	   
+	   
 	   
 	   
 	   Type t1 = new Type("Chien");
@@ -136,6 +159,11 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   
 	   Fiche f2 = new Fiche(t2, "Chatte en chaleur", "Pauline Paupiette Pops, une grande experte de la chatte a 	dit 	un jour : ''faut ken''.");
 	   ficheRepo.save(f2);
+	   
+	   HistoriqueGarde hm1 = new HistoriqueGarde(g1,m1,d.parse("25/12/2010"));
+	   histoGardeRepo.save(hm1); 
+	   
+	   
 	   
 }
 }

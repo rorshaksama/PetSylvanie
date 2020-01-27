@@ -31,6 +31,14 @@ public class HistoriqueGarde {
 	}
 
 	
+	public HistoriqueGarde(Garde garde, Message message, Date dateCreat) {
+		super();
+		this.garde = garde;
+		this.message = message;
+		this.dateCreat = dateCreat;
+	}
+
+
 	public HistoriqueGarde(Long id, Garde garde, Message message, Date dateCreat) {
 		super();
 		this.id = id;
