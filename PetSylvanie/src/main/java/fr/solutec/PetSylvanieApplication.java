@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import fr.solutec.dao.AdoptionRepository;
 
@@ -31,7 +31,7 @@ import fr.solutec.entities.User;
 
 
 @SpringBootApplication
-public class PetSylvanieApplication implements CommandLineRunner {
+public class PetSylvanieApplication extends SpringBootServletInitializer implements CommandLineRunner {
 	
 	@Autowired 
 	private UserRepository userRepo;
