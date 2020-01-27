@@ -14,9 +14,7 @@ import fr.solutec.dao.AlerteRepository;
 import fr.solutec.dao.AnimalRepository;
 import fr.solutec.dao.FicheRepository;
 import fr.solutec.dao.GardeRepository;
-import fr.solutec.dao.HistoriqueGardeRepository;
 import fr.solutec.dao.MessageRepository;
-import fr.solutec.dao.TypeMessageRepository;
 import fr.solutec.dao.TypeRepository;
 import fr.solutec.dao.UserRepository;
 
@@ -27,11 +25,8 @@ import fr.solutec.entities.Alerte;
 import fr.solutec.entities.Animal;
 import fr.solutec.entities.Fiche;
 import fr.solutec.entities.Garde;
-import fr.solutec.entities.HistoriqueGarde;
-import fr.solutec.entities.HistoriqueMessage;
 import fr.solutec.entities.Message;
 import fr.solutec.entities.Type;
-import fr.solutec.entities.TypeMessage;
 import fr.solutec.entities.User;
 
 
@@ -62,12 +57,6 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	@Autowired
 	private FicheRepository ficheRepo;
 	
-	@Autowired
-	private TypeMessageRepository typemessageRepo;
-	
-	@Autowired
-	private HistoriqueGardeRepository histoGardeRepo;
-	
 
 
 	public static void main(String[] args) {
@@ -79,18 +68,6 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	   System.out.println("lancement des instructions");
-	   
-	   TypeMessage tm1 =new TypeMessage("garde");
-	  typemessageRepo.save(tm1);
-	  TypeMessage tm2 =new TypeMessage("alerte");
-	  typemessageRepo.save(tm2);
-	  TypeMessage tm3 =new TypeMessage("adoption");
-	  typemessageRepo.save(tm3);
-	   	   
-	   
-	   
-	   
-	   
 	   
 	   
 	   Type t1 = new Type("Chien");
@@ -154,18 +131,11 @@ public class PetSylvanieApplication implements CommandLineRunner {
 	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g2);
 	   
-	   Fiche f1 = new Fiche(t1, "Comment laver mon chien ?", "Mouillez votre chien avec de l'eau tiède, il est conseillé de ne pas laver sa tête car de l'eau ou du shampooing pourrait arriver dans ses oreilles ou dans ses yeux, ce qui pourrait l'irriter. Rincer plusieurs fois votre toutou, afin d'éliminer les produits chimiques de ses poils.");
+	   Fiche f1 = new Fiche(t1, "Les chiens et leurs cacas, une grande histoire d'amour", "Selon une étude, nos 		grands amis les chiens sont friands de leurs excréments. Quelle bande de clébards ! lol");
 	   ficheRepo.save(f1);
 	   
-	   Fiche f2 = new Fiche(t2, "Comment nettoyer la cage de mon hamster ?", "Il convient de jeter la litière, ainsi que la nourriture entassée et le matériau de nidification. La cage se lave entièrement avec soin à l'eau chaude et au savon ; on peut la désinfecter à l'aide d'eau de Javel diluée qu'on laisse agir quelques minutes. On rince abondamment et on met l'ensemble à sécher");
+	   Fiche f2 = new Fiche(t2, "Chatte en chaleur", "Pauline Paupiette Pops, une grande experte de la chatte a 	dit 	un jour : ''faut ken''.");
 	   ficheRepo.save(f2);
-	   
-
-	   HistoriqueGarde hm1 = new HistoriqueGarde(g1,m1,d.parse("25/12/2010"));
-	   histoGardeRepo.save(hm1); 
-	   
-
-	   
 	   
 }
 }
