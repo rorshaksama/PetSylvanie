@@ -24,4 +24,7 @@ public interface AnimalRepository extends CrudRepository<Animal, Long>{
 	public Optional<Animal> getByNom(String nom);
 	
 	public List<Animal> findByUserId(Long id);
+	
+	/*@Query(value= "SELECT a FROM Animal a INNER JOIN Garde d ON a.id = g.animalId")
+	public List<Animal> getAnimalNotExistDemandeGarde();*/
 }

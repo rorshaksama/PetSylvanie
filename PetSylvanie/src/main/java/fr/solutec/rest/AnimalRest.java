@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.AnimalRepository;
 import fr.solutec.entities.Animal;
+import fr.solutec.entities.Garde;
 
 @RestController @CrossOrigin("*")
 public class AnimalRest {
@@ -45,4 +46,14 @@ public class AnimalRest {
 		
 		return animalRepo.findByUserId(id);
 	}
+	
+	/*@RequestMapping(value = "/animal/garde/no", method = RequestMethod.GET)
+	public List<Animal> getGardeNotExist(){		
+		return animalRepo.getAnimalNotExistDemandeGarde();
+	}*/
+	
+	/*@RequestMapping(value = "animal/garde/yes", method = RequestMethod.GET)
+	public List<Garde> getGardeExist(){		
+		return gardeRepo.getGarde();
+	}*/
 }
