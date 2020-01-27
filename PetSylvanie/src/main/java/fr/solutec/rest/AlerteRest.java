@@ -59,4 +59,16 @@ public class AlerteRest {
 	public void deleteAlerte(@PathVariable Long id){		
 		alerteRepo.deleteById(id);
 	}
+	
+	
+	@RequestMapping(value = "/alerte/usercreate/{id}", method = RequestMethod.POST)
+	public boolean isCreate(@PathVariable Long id, @RequestBody Alerte alerte){		
+		
+		if(alerte.getUser().getId() == id) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
