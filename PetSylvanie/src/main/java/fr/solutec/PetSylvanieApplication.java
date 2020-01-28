@@ -136,7 +136,7 @@ messageRepo.save(m2);
 Garde g2 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u2, a2, d.parse("01/02/2020"), d.parse("02/02/2020") );
 gardeRepo.save(g2);
 
-Garde g1 = new Garde("Cherche dogsitter pour vendredi après midi", u1, a2, d.parse("31/01/2020"), d.parse("31/01/2020") );
+Garde g1 = new Garde("Cherche dogsitter pour vendredi après midi", u1, a1, d.parse("31/01/2020"), d.parse("31/01/2020") );
 gardeRepo.save(g1);
 
 	  
