@@ -80,15 +80,15 @@ public class PetSylvanieApplication extends SpringBootServletInitializer impleme
 	   Type t5 = new Type("Lapin");
 	   typeRepo.save(t5);
 	   	   
-	   User u1 = new User("Verhalle","Florian","floflo","floflo","floflo@wanadoo.fr");
+	   User u1 = new User("Verhalle","floflo@wanadoo.fr","Florian","floflo","floflo");
 	   userRepo.save(u1);
-	   User u2 = new User("Priol","Celia","cecedev","cecedev","cecethebestdev@laposte.net");
+	   User u2 = new User("Priol","cecethebestdev@laposte.net","Celia","cecedev","cecedev");
 	   userRepo.save(u2);
-	   User u3 = new User("Marechal","Jojo","JojoMarech","JojoMarech","marechaljojo@gmail.com");
+	   User u3 = new User("Marechal","marechaljojo@gmail.com","Jojo","JojoMarech","JojoMarech");
 	   userRepo.save(u3);
-	   User u4 = new User("Cunat","Florian","flo1","flo1","pullolianmymen@hotmail.com");
+	   User u4 = new User("Cunat","pullolianmymen@hotmail.com","Florian","flo1","flo1");
 	   userRepo.save(u4);
-	   User u5 = new User("Varin","Gaetan","ladygaga","ladygaga","varingaet@minesdedouai.fr");
+	   User u5 = new User("Varin","varingaet@minesdedouai.fr", "Gaetan","ladygaga","ladygaga");
 	   userRepo.save(u5);
 	   
 	   
