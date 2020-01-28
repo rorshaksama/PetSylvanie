@@ -69,7 +69,6 @@ public class PetSylvanieApplication extends SpringBootServletInitializer impleme
 	public void run(String... args) throws Exception {
 	   System.out.println("lancement des instructions");
 	   
-	   
 	   Type t1 = new Type("Chien");
 	   typeRepo.save(t1);
 	   Type t2 = new Type("Chat");
@@ -80,66 +79,66 @@ public class PetSylvanieApplication extends SpringBootServletInitializer impleme
 	   typeRepo.save(t4);
 	   Type t5 = new Type("Lapin");
 	   typeRepo.save(t5);
-	   
-	   User u1 = new User("floflo","flo@gmail.com","floflo2","Florian","Vava");
+	   	   
+	   User u1 = new User("Verhalle","Florian","floflo","floflo","floflo@wanadoo.fr");
 	   userRepo.save(u1);
-	   User u2 = new User("t1","test1@mail.com","t1","test1","test1");
+	   User u2 = new User("Priol","Celia","cecedev","cecedev","cecethebestdev@laposte.net");
 	   userRepo.save(u2);
-	   User u3 = new User("Jojo","jojo@gmail.com","Maréchal","joel","Jojo");
+	   User u3 = new User("Marechal","Jojo","JojoMarech","JojoMarech","marechaljojo@gmail.com");
 	   userRepo.save(u3);
-	   User u4 = new User("test2","test2@gmail.com","test2","test","test");
+	   User u4 = new User("Cunat","Florian","flo1","flo1","pullolianmymen@hotmail.com");
 	   userRepo.save(u4);
-	   User u5 = new User("Célia","cece@gmail.com","Cece2","Célia","Dev");
+	   User u5 = new User("Varin","Gaetan","ladygaga","ladygaga","varingaet@minesdedouai.fr");
 	   userRepo.save(u5);
 	   
-	   DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 	   
-	   d.parse("25/12/2010");
+DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 	   
-	   Animal a1 = new Animal("Tigrou", t1 ,"Gentil chat", d.parse("25/12/2010") ,u1);
-	   animalRepo.save(a1);
-	   Animal a2 = new Animal("Iolo", t2 ,"Gentil rongeur", d.parse("25/12/2010") ,u2);
-	   animalRepo.save(a2);
-	   Animal a3 = new Animal("Igloo", t3 ,"Gentil lapin", d.parse("25/12/2010") ,u3);
-	   animalRepo.save(a3);
-	   Animal a4 = new Animal("Marco", t4 ,"Gentil chien", d.parse("25/12/2010") ,u4);
-	   animalRepo.save(a4);
-	   Animal a5 = new Animal("Jean", t5 ,"Gentil c", d.parse("25/12/2010") ,u5);
-	   animalRepo.save(a5);
-	   Animal a6 = new Animal("Jaja", t5 ,"Gentil chien", d.parse("25/12/2010") ,u1);
-	   animalRepo.save(a6);
+d.parse("25/12/2010");
+
+
+Animal a1 = new Animal("Ouaf", t1 ,"Gentil chien", d.parse("19/6/2014") ,u1);
+animalRepo.save(a1);
+Animal a2 = new Animal("Mew", t2 ,"Gentil chat", d.parse("06/7/2015") ,u2);
+animalRepo.save(a2);
+Animal a3 = new Animal("Woody", t3 ,"Gentil oiseau", d.parse("25/01/2017") ,u1);
+animalRepo.save(a3);
+Animal a4 = new Animal("Stuart", t4 ,"Gentil rongeur", d.parse("02/12/2013") ,u4);
+animalRepo.save(a4);
+Animal a5 = new Animal("Panpan", t5 ,"Gentil lapin", d.parse("05/02/2014") ,u5);
+animalRepo.save(a5);
+Animal a6 = new Animal("Garfield", t2 ,"Gentil chat", d.parse("29/10/2015") ,u1);
+animalRepo.save(a6);
+
+
+
+Adoption ad1 = new Adoption(a1);
+adoptionRepo.save(ad1);
+Adoption ad2 = new Adoption(a2);
+adoptionRepo.save(ad2);
+
+Alerte warn1 = new Alerte(u2, "Petit chat noir perdu dans le 17ème arrondissement, aidez-moi à le retrouver !", d.parse("27/01/2020"));
+alerteRepo.save(warn1);
+Alerte warn2 = new Alerte(u4, "Ma souris blanche s'est sauvée lors de mon cours de SVT au Collège St Martin. Sauvons Stuart !", d.parse("25/01/2020"));
+alerteRepo.save(warn2);
+Alerte warn3 = new Alerte(u3, "Chien avec collier retrouvé dans la forêt de la Mare Assse. Son nom est Ouaf, je m'en occupe en attendant que ce petit bout retrouve son maître au plus vite", d.parse("22/01/2020"));
+alerteRepo.save(warn3);
+
+
+Message m1 = new Message(u4, u1, "Stuart est chez moi ! Je te contacte via ton email pour un rendez vous");
+m1.setAlerte(warn2);
+messageRepo.save(m1); 
+Message m2 = new Message(u3, u1, "Ouaf ! Mon toutou ! Papa est là, j'arrive !");
+m2.setAlerte(warn3);
+messageRepo.save(m2);
 	   
 
-	   Adoption ad1 = new Adoption(a1);
-	   adoptionRepo.save(ad1);
-	   Adoption ad2 = new Adoption(a2);
-	   adoptionRepo.save(ad2);
+Garde g2 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u2, a2, d.parse("01/02/2020"), d.parse("02/02/2020") );
+gardeRepo.save(g2);
 
-	   Alerte warn1 = new Alerte(u1, "Petit chat perdu et tout mignon", d.parse("15/02/2019"));
-	   alerteRepo.save(warn1);
-	   Alerte warn2 = new Alerte(u4, "Petit chien perdu et blessé ...", d.parse("25/06/2018"));
-	   alerteRepo.save(warn2);
-	   Alerte warn3 = new Alerte(u5, "Lapin trop doux et tout mignon perdu dans le bois de Boulogne", d.parse("14/07/2019"));
-	   alerteRepo.save(warn3);
+Garde g1 = new Garde("Cherche dogsitter pour vendredi après midi", u1, a2, d.parse("31/01/2020"), d.parse("31/01/2020") );
+gardeRepo.save(g1);
 
-	   Message m1 = new Message(u1, u4, "He coucou toi");
-	   m1.setAlerte(warn1);
-	   messageRepo.save(m1); 
-	   Message m2 = new Message(u1, u4, "Juste un test");
-	   m2.setAlerte(warn1);
-	   messageRepo.save(m2); 
-	   
-	   Garde g1 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u1, a1, d.parse("25/12/2010"), d.parse("26/12/2010") );
-	   gardeRepo.save(g1);
-	   
-	   Garde g2 = new Garde("Cherche dogsitter pour vendredi", u1, a2, d.parse("25/12/2010"), d.parse("26/12/2010") );
-	   gardeRepo.save(g2);
-	   
-	   Fiche f1 = new Fiche(t1, "Les chiens et leurs cacas, une grande histoire d'amour", "Selon une étude, nos 		grands amis les chiens sont friands de leurs excréments. Quelle bande de clébards ! lol");
-	   ficheRepo.save(f1);
-	   
-	   Fiche f2 = new Fiche(t2, "Chatte en chaleur", "Pauline Paupiette Pops, une grande experte de la chatte a 	dit 	un jour : ''faut ken''.");
-	   ficheRepo.save(f2);
-	   
+	  
 }
 }
