@@ -123,7 +123,11 @@ public class PetSylvanieApplication extends SpringBootServletInitializer impleme
 	   alerteRepo.save(warn3);
 
 	   Message m1 = new Message(u1, u4, "He coucou toi");
+	   m1.setAlerte(warn1);
 	   messageRepo.save(m1); 
+	   Message m2 = new Message(u1, u4, "Juste un test");
+	   m2.setAlerte(warn1);
+	   messageRepo.save(m2); 
 	   
 	   Garde g1 = new Garde("Chat trop choupi tout mignon cherche maître pour un soir ce samedi", u1, a1, d.parse("25/12/2010"), d.parse("26/12/2010") );
 	   gardeRepo.save(g1);

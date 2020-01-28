@@ -54,5 +54,25 @@ public class MessageRest {
 		messageRepo.deleteById(id);
 	}
 	
+	@RequestMapping(value = "/message/{id}", method = RequestMethod.GET)
+	public Optional<Message> getMessageById(@PathVariable Long id){		
+		return messageRepo.findById(id);
+	}
+	
+	
+	@RequestMapping(value = "/message/alerte/{id}", method = RequestMethod.GET)
+	public List<Message> getMessageByAlerte(@PathVariable Long id){		
+		return messageRepo.findByAlerteId(id);
+	}
+	
+	@RequestMapping(value = "/message/nb/alerte/{id}", method = RequestMethod.GET)
+	public int getNbMessageByAlerte(@PathVariable Long id){	
+		
+		List<Message> messages = messageRepo.findByAlerteId(id);
+		
+		return messages.size();
+	}
+	
+	
 	
 }

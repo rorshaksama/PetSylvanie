@@ -30,8 +30,12 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
-	public User modifUser(@RequestBody User user, @PathVariable Long id){		
+	public User modifUser(@RequestBody User user, @PathVariable Long id){	
+		
+		Optional<User> umod = userRepo.findById(id);
+		
 		user.setId(id);
+		user.setMdp(umod.get().getMdp());
 		return userRepo.save(user);
 	}
 	

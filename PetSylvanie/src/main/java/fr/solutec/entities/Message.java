@@ -21,6 +21,9 @@ public class Message {
 	@ManyToOne
 	private TypeMessage type;
 	
+	@ManyToOne
+	private Alerte alerte;
+	
 	private String contenu;
 
 	public Message() {
@@ -53,6 +56,24 @@ public class Message {
 
 	public Long getId() {
 		return id;
+	}
+	
+	
+
+	public TypeMessage getType() {
+		return type;
+	}
+
+	public void setType(TypeMessage type) {
+		this.type = type;
+	}
+
+	public Alerte getAlerte() {
+		return alerte;
+	}
+
+	public void setAlerte(Alerte alerte) {
+		this.alerte = alerte;
 	}
 
 	public void setId(Long id) {

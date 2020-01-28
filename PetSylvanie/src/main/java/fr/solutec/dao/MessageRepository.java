@@ -12,4 +12,7 @@ public interface MessageRepository extends CrudRepository<Message, Long>{
 
 	@Query(value= "SELECT m FROM Message m")
 	public List<Message> getMessage();
+	
+	
+	public List<Message> findByAlerteId(Long id);
 }
